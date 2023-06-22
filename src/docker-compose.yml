@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  serverindex.server:
+    image: ${DOCKER_REGISTRY-}serverindexserver
+    build:
+      context: .
+      dockerfile: ServerIndex/Web/Server/Dockerfile
