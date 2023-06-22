@@ -6,3 +6,16 @@ services:
     build:
       context: .
       dockerfile: ServerIndex/Web/Server/Dockerfile
+    environment:
+      POSTGRES_CONNECTION_STRING: Host=postgres;Port=5432;Database=serverindex;Username=postgres;Password=postgres
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=serverindex
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
