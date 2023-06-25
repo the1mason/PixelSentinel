@@ -1,10 +1,4 @@
 ﻿using FluentMigrator;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentMigrator.Postgres;
 
 namespace ServerIndex.Data.Migrations;
 [Migration(202306220000, "Initial Create")]
@@ -88,6 +82,26 @@ public class V202306220000InitialCreate : Migration
     }
     public override void Down()
     {
-        throw new NotImplementedException();
+        Delete.Table("Server");
+
+        Delete.Table("Role");
+
+        Delete.Table("User");
+
+        Delete.Table("Session");
+
+        Delete.Table("UserSession");
+
+        Delete.Table("UserServer");
+
+        Delete.Table("Tag");
+
+        Delete.Table("ServerTag");
+
+        Delete.Table("ServerReaction");
+
+        Delete.Table("AnalyticServer");
+
+        Delete.Table("Settings");
     }
 }

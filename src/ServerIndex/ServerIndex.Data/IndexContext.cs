@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FluentMigrator.Runner.Versioning;
 using Microsoft.EntityFrameworkCore;
 
 namespace ServerIndex.Data;
@@ -56,6 +57,18 @@ public partial class IndexContext : DbContext
                 .HasForeignKey(d => d.ServerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_AnalyticServer_ServerId_Server_Id");
+        });
+
+        modelBuilder.Entity<MasScanHistory>(entity =>
+        {
+            entity.ToTable("MasScanHistory");
+
+            entity.HasIndex(e => e.Id, "IX_MasScanHistory_Id").IsUnique();
+
+            entity.Property(e => e.Date)
+                .HasDefaultValueSql("now()")
+                .HasColumnType("timestamp without time zone");
+            entity.Property(e => e.Range).HasMaxLength(512);
         });
 
         modelBuilder.Entity<Role>(entity =>

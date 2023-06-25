@@ -28,6 +28,7 @@ public partial class Server
     public string? Website { get; set; }
 
     public string? LastMetadata { get; set; }
+    public int Score { get; set; }
 
     public virtual ICollection<AnalyticServer> AnalyticServers { get; set; } = new List<AnalyticServer>();
 
