@@ -1,0 +1,13 @@
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software with the following restrictions:
+
+1. No Commercial Use: The Software may not be used for commercial purposes without prior written permission from the author(s). Commercial use includes any activity intended for profit or financial gain, directly or indirectly.
+
+2. No Warranty: The Software is provided "as is," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and non-infringement. The author(s) of the Software make(s) no guarantee or representation regarding the accuracy or reliability of the Software or its suitability for any purpose.
+
+3. No Liability: In no event shall the author(s) of the Software be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
+
+Permission is granted to anyone to distribute, modify, and use the Software for private use, subject to the following conditions:
+
+1. Same License: Any distribution or modification of the Software must be done under the terms of this license, and the same license must be included with the distributed or modified software.
+
+By using or distributing this Software, you agree to the terms and conditions of this license.
