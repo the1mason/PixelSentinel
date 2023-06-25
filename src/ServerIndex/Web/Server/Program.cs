@@ -1,10 +1,8 @@
 using FluentMigrator.Runner;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using ServerIndex.Data.Migrations;
 
-namespace ServerIndex.Server;
+namespace ServerIndex.Web.Server;
 public class Program
 {
     public static void Main(string[] args)
@@ -24,7 +22,8 @@ public class Program
             .AddLogging(lb => lb.AddFluentMigratorConsole()
         );
 
-        builder.Services.AddDbContextFactory<Data.IndexContext>(options => {
+        builder.Services.AddDbContextFactory<Data.IndexContext>(options =>
+        {
             options.UseNpgsql(connection);
         });
 
@@ -32,12 +31,18 @@ public class Program
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
 
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseWebAssemblyDebugging();
         }
         else
@@ -64,6 +69,6 @@ public class Program
 
         app.Run();
 
-        
+
     }
 }

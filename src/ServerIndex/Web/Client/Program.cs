@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using ServerIndex.Client;
 
-namespace ServerIndex.Client;
+namespace ServerIndex.Web.Client;
 public class Program
 {
     public static async Task Main(string[] args)

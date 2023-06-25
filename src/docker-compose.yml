@@ -1,13 +1,27 @@
 version: '3.4'
 
 services:
+
   serverindex.server:
     image: ${DOCKER_REGISTRY-}serverindexserver
     build:
       context: .
       dockerfile: ServerIndex/Web/Server/Dockerfile
+    depends_on:
+     - postgres
+     - serverindex.webservices.resolver
     environment:
       POSTGRES_CONNECTION_STRING: Host=postgres;Port=5432;Database=serverindex;Username=postgres;Password=postgres
+
+
+  serverindex.webservices.resolver:
+    image: ${DOCKER_REGISTRY-}serverindexwebservicesresolver
+    build:
+      context: .
+      dockerfile: ServerIndex/WebServices/ServerIndex.WebServices.Resolver/Dockerfile
+    environment:
+      POSTGRES_CONNECTION_STRING: Host=postgres;Port=5432;Database=serverindex;Username=postgres;Password=postgres
+
 
   postgres:
     image: postgres
