@@ -28,6 +28,15 @@ Modify the `docker-compose.yml` file in accordance with your needs, then launch 
 docker-compose up -d
 ```
 
+## Configuring dev environment
+
+Follow these steps to debug the code on windows:  
+
+1. Download **VisualStudio 2022** with WASM Debugging and Web Developement packages installed
+2. Install and set up WSL v2
+3. Download Docker Desktop and enable WSL support
+4. Open the solution (/src/ServerIndex.sln) and set docker-compose as a startup project.
+
 ## License  
 
 The license can be found [here](LICENSE.txt).  
