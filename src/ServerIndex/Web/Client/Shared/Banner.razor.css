@@ -1,0 +1,29 @@
+﻿.banner {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.banner h1 {
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 60px;
+    letter-spacing: 0.8pt;
+}
+
+.banner p {
+    font-family: 'Roboto';
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+
+    .banner h1 {
+        font-size: 38px;
+    }
+
+    .banner p {
+        font-size: 18px;
+    }
+
+}

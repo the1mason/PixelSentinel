@@ -1,5 +1,10 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+::selection {
+    background: #D34646;
+    color: #ffffff;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -68,7 +73,7 @@ a {
 
     #header-search input {
         border: none;
-        background-color: #00000005;
+        background-color: #00000004;
         color: #000;
         font-family: 'Roboto';
         font-size: 18px;
@@ -79,6 +84,12 @@ a {
 
         #header-search input:focus {
             outline: none;
+            background-color: #0000000a;
+        }
+
+        #header-search input:hover {
+            outline: none;
+            background-color: #00000008;
         }
 
 @media (max-width: 768px) {
@@ -218,7 +229,7 @@ a {
     }
 
         .loading-progress circle:last-child {
-            stroke: #1b6ec2;
+            stroke: #D34646;
             stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
             transition: stroke-dasharray 0.05s ease-in-out;
         }
