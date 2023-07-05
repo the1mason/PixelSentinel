@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\ServerIndex.DTO\ServerIndex.DTO.csproj" />
     <ProjectReference Include="..\..\ServerIndex.Data\ServerIndex.Data.csproj" />
     <ProjectReference Include="..\Client\ServerIndex.Web.Client.csproj" />
   </ItemGroup>

@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerIndex.Data", "ServerI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebServices", "WebServices", "{ED2D62E2-6CB9-4794-8232-79A5300277F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerIndex.WebServices.Resolver", "ServerIndex\WebServices\ServerIndex.WebServices.Resolver\ServerIndex.WebServices.Resolver.csproj", "{4A88596B-6BBA-4AB9-BBF8-BA7D98096472}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerIndex.WebServices.Resolver", "ServerIndex\WebServices\ServerIndex.WebServices.Resolver\ServerIndex.WebServices.Resolver.csproj", "{4A88596B-6BBA-4AB9-BBF8-BA7D98096472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerIndex.DTO", "..\ServerIndex.DTO\ServerIndex.DTO.csproj", "{C29584F0-C822-4596-9933-1342D8B41072}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{4A88596B-6BBA-4AB9-BBF8-BA7D98096472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A88596B-6BBA-4AB9-BBF8-BA7D98096472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A88596B-6BBA-4AB9-BBF8-BA7D98096472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29584F0-C822-4596-9933-1342D8B41072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29584F0-C822-4596-9933-1342D8B41072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29584F0-C822-4596-9933-1342D8B41072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29584F0-C822-4596-9933-1342D8B41072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
