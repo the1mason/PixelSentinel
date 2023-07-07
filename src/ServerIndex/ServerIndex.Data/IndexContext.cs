@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using FluentMigrator.Runner.Versioning;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ServerIndex.Data;
 
@@ -18,9 +15,15 @@ public partial class IndexContext : DbContext
 
     public virtual DbSet<AnalyticServer> AnalyticServers { get; set; }
 
+    public virtual DbSet<MasScanHistory> MasScanHistories { get; set; }
+
+    public virtual DbSet<Modifier> Modifiers { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Server> Servers { get; set; }
+
+    public virtual DbSet<ServerModifier> ServerModifiers { get; set; }
 
     public virtual DbSet<ServerReaction> ServerReactions { get; set; }
 
@@ -71,6 +74,16 @@ public partial class IndexContext : DbContext
             entity.Property(e => e.Range).HasMaxLength(512);
         });
 
+        modelBuilder.Entity<Modifier>(entity =>
+        {
+            entity.ToTable("Modifier");
+
+            entity.HasIndex(e => e.Id, "IX_Modifier_Id").IsUnique();
+
+            entity.Property(e => e.Description).HasMaxLength(512);
+            entity.Property(e => e.Name).HasMaxLength(64);
+        });
+
         modelBuilder.Entity<Role>(entity =>
         {
             entity.ToTable("Role");
@@ -98,6 +111,27 @@ public partial class IndexContext : DbContext
                 .HasDefaultValueSql("(now() AT TIME ZONE 'UTC'::text)")
                 .HasColumnType("timestamp without time zone");
             entity.Property(e => e.Website).HasMaxLength(256);
+
+            entity.HasMany(e => e.ServerTags)
+                .WithOne(e => e.Server)
+                .HasForeignKey(e => e.ServerId);
+        });
+
+        modelBuilder.Entity<ServerModifier>(entity =>
+        {
+            entity.ToTable("ServerModifier");
+
+            entity.HasIndex(e => e.Id, "IX_ServerModifier_Id").IsUnique();
+
+            entity.HasOne(d => d.Modifier).WithMany(p => p.ServerModifiers)
+                .HasForeignKey(d => d.ModifierId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ServerModifier_ModifierId_Modifier_Id");
+
+            entity.HasOne(d => d.Server).WithMany(p => p.ServerModifiers)
+                .HasForeignKey(d => d.ServerId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ServerModifier_ServerId_Server_Id");
         });
 
         modelBuilder.Entity<ServerReaction>(entity =>
@@ -128,6 +162,11 @@ public partial class IndexContext : DbContext
                 .HasForeignKey(d => d.ServerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ServerTag_ServerId_Server_Id");
+
+            entity.HasOne(d => d.Tag).WithMany(p => p.ServerTags)
+                .HasForeignKey(d => d.TagName)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_ServerTag_TagName_Tag_Name");
         });
 
         modelBuilder.Entity<Session>(entity =>

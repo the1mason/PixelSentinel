@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace ServerIndex.Data;
 
+/// <summary>
+/// Represents a minecraft server
+/// </summary>
 public partial class Server
 {
     public long Id { get; set; }
@@ -19,6 +22,9 @@ public partial class Server
 
     public int? PlayerCount { get; set; }
 
+    /// <summary>
+    /// Server's ip address in base 10
+    /// </summary>
     public long Address { get; set; }
 
     public string? DomainName { get; set; }
@@ -28,9 +34,12 @@ public partial class Server
     public string? Website { get; set; }
 
     public string? LastMetadata { get; set; }
+
     public int Score { get; set; }
 
     public virtual ICollection<AnalyticServer> AnalyticServers { get; set; } = new List<AnalyticServer>();
+
+    public virtual ICollection<ServerModifier> ServerModifiers { get; set; } = new List<ServerModifier>();
 
     public virtual ICollection<ServerReaction> ServerReactions { get; set; } = new List<ServerReaction>();
 

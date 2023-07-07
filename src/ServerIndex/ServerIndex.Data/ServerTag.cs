@@ -14,4 +14,6 @@ public partial class ServerTag
     public long Order { get; set; }
 
     public virtual Server Server { get; set; } = null!;
+
+    public virtual Tag Tag { get; set; } = null!;
 }

@@ -24,11 +24,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ServerIndex.Data\ServerIndex.Data.csproj" />
 	  <ProjectReference Include="..\..\ServerIndex.DTO\ServerIndex.DTO.csproj" />
+	  <ProjectReference Include="..\..\ServerIndex.Services.Impl\ServerIndex.Services.Impl.csproj" />
+	  <ProjectReference Include="..\..\ServerIndex.Services\ServerIndex.Services.csproj" />
 	  <ProjectReference Include="..\Client\ServerIndex.Web.Client.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 

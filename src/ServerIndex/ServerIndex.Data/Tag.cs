@@ -12,4 +12,5 @@ public partial class Tag
     public string? Data { get; set; }
 
     public bool IsVisible { get; set; }
+    public virtual ICollection<ServerTag> ServerTags { get; set; } = new List<ServerTag>();
 }

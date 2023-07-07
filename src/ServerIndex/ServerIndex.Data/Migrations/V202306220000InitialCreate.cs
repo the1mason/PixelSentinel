@@ -60,7 +60,7 @@ public class V202306220000InitialCreate : Migration
         Create.Table("ServerTag")
             .WithColumn("Id").AsInt64().PrimaryKey().Unique().Identity()
             .WithColumn("ServerId").AsInt64().ForeignKey("Server", "Id").NotNullable()
-            .WithColumn("TagName").AsString(32).ForeignKey().NotNullable()
+            .WithColumn("TagName").AsString(32).NotNullable()
             .WithColumn("Order").AsInt64();
 
         Create.Table("ServerReaction")

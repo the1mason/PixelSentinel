@@ -1,6 +1,8 @@
 using FluentMigrator.Runner;
 using Microsoft.EntityFrameworkCore;
 using ServerIndex.Data.Migrations;
+using ServerIndex.Services;
+using ServerIndex.Services.Impl;
 
 namespace ServerIndex.Web.Server;
 public class Program
@@ -28,6 +30,9 @@ public class Program
         });
 
         // Add services to the container.
+
+        builder.Services.AddScoped<IServerService, ServerService>();
+        builder.Services.AddScoped<ITagService, TagService>();
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
